@@ -46,7 +46,7 @@ namespace SpellChecker
             if (result == true)
             {
                 _FileName = win.FileName;
-                TextFileButton.Content = _FileName; //Button text displays path and file name
+                TextFileButton.SetCurrentValue(ContentProperty, _FileName); //Button text displays path and file name
 
                 string[] lines = System.IO.File.ReadAllLines(_FileName);
 
@@ -56,7 +56,7 @@ namespace SpellChecker
                     DisplayText.Blocks.Add(new Paragraph(new Run(line)) { Margin = new Thickness(0) }); //Add a paragraph to FlowDocument for each line
                 }
 
-                Save.IsEnabled = true; //Turn on save button to save corrections made
+                Save.SetCurrentValue(IsEnabledProperty, true); //Turn on save button to save corrections made
             }
         }
 
